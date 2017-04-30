@@ -1,0 +1,36 @@
+{
+  "name": "asyum",
+  "version": "0.0.0",
+  "description": "Pretend entity.",
+  "main": "asyum.deploy.js",
+  "support": "asyum.support.js",
+  "authors": [
+    "Richeve S. Bebedor <richeve.bebedor@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "pretend",
+    "entity",
+    "asyum"
+  ],
+  "homepage": "https://github.com/volkovasystems/asyum",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "resolutions": {
+    "doubt": "^0.26.0",
+    "stringe": "^0.3.0",
+    "raze": "^0.28.0"
+  },
+  "dependencies": {
+    "annon": "^0.3.0",
+    "doubt": "^0.26.0",
+    "fname": "^0.4.0",
+    "protype": "^0.21.0",
+    "wichevr": "^0.8.0"
+  }
+}
