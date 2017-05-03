@@ -205,9 +205,9 @@ const asyum = function asyum( context, wrap, delegate ){
 
 			name = fname( delegate );
 
-			delegate = protype( delegate, FUNCTION )? delegate :
-				protype( prototype[ name ], FUNCTION )? prototype[ name ] :
-					( ) => { throw new Error ( `no operation done, ${ arguments }` ) };
+			delegate = protype( prototype[ name ], FUNCTION )? prototype[ name ] :
+				protype( delegate, FUNCTION )? delegate :
+				( ) => { throw new Error ( `no operation done, ${ arguments }` ) };
 
 			return { [ name ]: delegate.bind( context ) };
 		}
