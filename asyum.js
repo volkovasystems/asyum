@@ -197,7 +197,7 @@ const asyum = function asyum( context, wrap, delegate ){
 				}else{
 					return method;
 				}
-			}, protype( wrap, FUNCTION )? wrap : ( ) => { } ).prototype;
+			}, protype( wrap, FUNCTION )? wrap : function( ){ } ).prototype;
 
 			if( annon( delegate ) ){
 				throw new Error( `invalid delegate method, '${ delegate }'` );
@@ -205,9 +205,12 @@ const asyum = function asyum( context, wrap, delegate ){
 
 			name = fname( delegate );
 
-			delegate = protype( prototype[ name ], FUNCTION )? prototype[ name ] :
-				protype( delegate, FUNCTION )? delegate :
-				( ) => { throw new Error ( `no operation done, ${ arguments }` ) };
+			if( protype( prototype[ name ], FUNCTION ) ){
+				delegate = prototype[ name ];
+
+			}else if( !protype( delegate, FUNCTION ) ){
+				delegate = ( ( ) => { throw new Error ( `no operation done, ${ arguments }` ) } );
+			}
 
 			return { [ name ]: delegate.bind( context ) };
 		}
