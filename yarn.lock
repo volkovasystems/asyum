@@ -43,13 +43,13 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
-annon@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/annon/-/annon-0.4.0.tgz#f9bb186eb90e8dc559c9f3483d0f22f954f6966d"
+annon@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/annon/-/annon-0.5.0.tgz#df887d2297793f6a3a742db5b0d9979b2b27f026"
   dependencies:
     babel-runtime "^6.23.0"
     falzy "^0.19.0"
-    fnamed "^0.6.0"
+    fnamed "^0.7.0"
     protype "^0.21.0"
 
 ansi-regex@^2.0.0:
@@ -1145,23 +1145,23 @@ find-up@^1.0.0:
     path-exists "^2.0.0"
     pinkie-promise "^2.0.0"
 
-fname@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/fname/-/fname-0.5.0.tgz#d0a2b77d5ea147770c12d8559f8919aa58fc7fa1"
+fname@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/fname/-/fname-0.7.0.tgz#d35e80ac0b3b6e6270ef4867e9dcefef729edf7a"
   dependencies:
     babel-runtime "^6.23.0"
     falzy "^0.19.0"
     mtch "^0.1.0"
+    nmde "^0.0.0"
     protype "^0.21.0"
-    truly "^0.18.0"
 
-fnamed@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/fnamed/-/fnamed-0.6.0.tgz#4f4c948afeb75c40db17df579db9772df0931214"
+fnamed@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/fnamed/-/fnamed-0.7.0.tgz#d69e3a20b587a5f6c8b00f0ce57c209814d5f6a8"
   dependencies:
     babel-runtime "^6.23.0"
     falzy "^0.19.0"
-    fname "^0.5.0"
+    fname "^0.7.0"
     protype "^0.21.0"
     truly "^0.18.0"
 
@@ -1704,6 +1704,15 @@ nan@^2.3.0:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.6.2.tgz#e4ff34e6c95fdfb5aecc08de6596f43605a7db45"
 
+nmde@^0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/nmde/-/nmde-0.0.0.tgz#173eb8d5b5dad6b7c403fcfd92f04616509c3326"
+  dependencies:
+    babel-runtime "^6.23.0"
+    falzy "^0.19.0"
+    protype "^0.21.0"
+    truly "^0.18.0"
+
 node-libs-browser@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/node-libs-browser/-/node-libs-browser-2.0.0.tgz#a3a59ec97024985b46e958379646f96c4b616646"
@@ -2182,8 +2191,8 @@ sntp@1.x.x:
     hoek "2.x.x"
 
 source-list-map@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/source-list-map/-/source-list-map-1.1.1.tgz#1a33ac210ca144d1e561f906ebccab5669ff4cb4"
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/source-list-map/-/source-list-map-1.1.2.tgz#9889019d1024cce55cdc069498337ef6186a11a1"
 
 source-map-loader@^0.2.1:
   version "0.2.1"
@@ -2460,9 +2469,9 @@ webpack-sources@^0.2.3:
     source-list-map "^1.1.1"
     source-map "~0.5.3"
 
-webpack@^2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-2.4.1.tgz#15a91dbe34966d8a4b99c7d656efd92a2e5a6f6a"
+webpack@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-2.5.0.tgz#5a17089f8d0e43442e606d6cf9b2a146c8ed9911"
   dependencies:
     acorn "^5.0.0"
     acorn-dynamic-import "^2.0.0"
