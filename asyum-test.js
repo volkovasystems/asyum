@@ -14,4 +14,6 @@ assert.equal( asyum( testA, ClassA, function method( ){ return "world"; } ).meth
 
 assert.equal( asyum( testA, ClassA, function methodB( ){ return "world"; } ).methodB( ), "world", "should return value 'world'" );
 
+assert.equal( asyum( { "test": function test( ){ return "yeah"; } }, function test( ){ return "test"; } ).test( ), "yeah", "should return 'yeah'" );
+
 console.log( "ok" );

@@ -1,6 +1,6 @@
 {
   "name": "asyum",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Pretend entity.",
   "main": "asyum.js",
   "support": "asyum.support.js",
@@ -42,6 +42,6 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-latest": "^6.24.1",
     "source-map-loader": "^0.2.1",
-    "webpack": "^2.6.1"
+    "webpack": "^3.0.0"
   }
 }

@@ -137,8 +137,8 @@ var asyum = function asyum(context, wrap, delegate) {var _arguments = arguments;
 
 			var name = fname(delegate);
 
-			delegate = protype(delegate, FUNCTION) ? delegate :
-			protype(self[name], FUNCTION) ? self[name] :
+			delegate = protype(self[name], FUNCTION) ? self[name] :
+			protype(delegate, FUNCTION) ? delegate :
 			function () {throw new Error("no operation done, " + _arguments);};
 
 			return (0, _defineProperty3.default)({}, name, delegate.bind(context));
