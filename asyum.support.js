@@ -34,10 +34,11 @@
               			"file": "asyum.js",
               			"module": "asyum",
               			"author": "Richeve S. Bebedor",
-              			"contributors": [
-              				"John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>"
-              			],
               			"eMail": "richeve.bebedor@gmail.com",
+              			"contributors": [
+              				"John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>",
+              				"Vinse Vinalon <vinsevinalon@gmail.com>"
+              			],
               			"repository": "https://github.com/volkovasystems/asyum.git",
               			"test": "asyum-test.js",
               			"global": true
@@ -60,16 +61,14 @@
               			"annon": "annon",
               			"doubt": "doubt",
               			"fname": "fname",
-              			"protype": "protype",
               			"wichevr": "wichevr"
               		}
               	@end-include
-              */var _getPrototypeOf = require("babel-runtime/core-js/object/get-prototype-of");var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);var _defineProperty2 = require("babel-runtime/helpers/defineProperty");var _defineProperty3 = _interopRequireDefault(_defineProperty2);var _keys = require("babel-runtime/core-js/object/keys");var _keys2 = _interopRequireDefault(_keys);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+              */var _getPrototypeOf = require("babel-runtime/core-js/object/get-prototype-of");var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);var _defineProperty2 = require("babel-runtime/helpers/defineProperty");var _defineProperty3 = _interopRequireDefault(_defineProperty2);var _keys = require("babel-runtime/core-js/object/keys");var _keys2 = _interopRequireDefault(_keys);var _typeof2 = require("babel-runtime/helpers/typeof");var _typeof3 = _interopRequireDefault(_typeof2);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 var annon = require("annon");
 var doubt = require("doubt");
 var fname = require("fname");
-var protype = require("protype");
 var wichevr = require("wichevr");
 
 var asyum = function asyum(context, wrap, delegate) {var _arguments = arguments;
@@ -100,7 +99,7 @@ var asyum = function asyum(context, wrap, delegate) {var _arguments = arguments;
 		if (arguments.length == 2) {
 			delegate = arguments[1];
 
-			if (protype(delegate, OBJECT)) {
+			if ((typeof delegate === "undefined" ? "undefined" : (0, _typeof3.default)(delegate)) == "object") {
 				if (doubt(delegate, ARRAY)) {
 					return delegate.reduce(function (self, method) {
 						if (annon(method)) {
@@ -137,8 +136,8 @@ var asyum = function asyum(context, wrap, delegate) {var _arguments = arguments;
 
 			var name = fname(delegate);
 
-			delegate = protype(self[name], FUNCTION) ? self[name] :
-			protype(delegate, FUNCTION) ? delegate :
+			delegate = typeof self[name] == "function" ? self[name] :
+			typeof delegate == "function" ? delegate :
 			function () {throw new Error("no operation done, " + _arguments);};
 
 			return (0, _defineProperty3.default)({}, name, delegate.bind(context));
@@ -153,7 +152,7 @@ var asyum = function asyum(context, wrap, delegate) {var _arguments = arguments;
     */
 
 		if (arguments.length == 3) {
-			if (protype(delegate, OBJECT)) {
+			if ((typeof delegate === "undefined" ? "undefined" : (0, _typeof3.default)(delegate)) == "object") {
 				if (doubt(delegate, ARRAY)) {
 					return delegate.reduce(function (self, method) {
 						if (annon(method)) {
@@ -200,7 +199,7 @@ var asyum = function asyum(context, wrap, delegate) {var _arguments = arguments;
 				} else {
 					return method;
 				}
-			}, protype(wrap, FUNCTION) ? wrap : function () {}).prototype;
+			}, typeof wrap == "function" ? wrap : function () {}).prototype;
 
 			if (annon(delegate)) {
 				throw new Error("invalid delegate method, '" + delegate + "'");
@@ -208,10 +207,10 @@ var asyum = function asyum(context, wrap, delegate) {var _arguments = arguments;
 
 			_name = fname(delegate);
 
-			if (protype(prototype[_name], FUNCTION)) {
+			if (typeof prototype[_name] == "function") {
 				delegate = prototype[_name];
 
-			} else if (!protype(delegate, FUNCTION)) {
+			} else if (typeof delegate != "function") {
 				delegate = function delegate() {throw new Error("no operation done, " + _arguments);};
 			}
 

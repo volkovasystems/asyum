@@ -34,10 +34,11 @@
 			"file": "asyum.js",
 			"module": "asyum",
 			"author": "Richeve S. Bebedor",
-			"contributors": [
-				"John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>"
-			],
 			"eMail": "richeve.bebedor@gmail.com",
+			"contributors": [
+				"John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>",
+				"Vinse Vinalon <vinsevinalon@gmail.com>"
+			],
 			"repository": "https://github.com/volkovasystems/asyum.git",
 			"test": "asyum-test.js",
 			"global": true
@@ -60,7 +61,6 @@
 			"annon": "annon",
 			"doubt": "doubt",
 			"fname": "fname",
-			"protype": "protype",
 			"wichevr": "wichevr"
 		}
 	@end-include
@@ -69,7 +69,6 @@
 const annon = require( "annon" );
 const doubt = require( "doubt" );
 const fname = require( "fname" );
-const protype = require( "protype" );
 const wichevr = require( "wichevr" );
 
 const asyum = function asyum( context, wrap, delegate ){
@@ -100,7 +99,7 @@ const asyum = function asyum( context, wrap, delegate ){
 		if( arguments.length == 2 ){
 			delegate = arguments[ 1 ];
 
-			if( protype( delegate, OBJECT ) ){
+			if( typeof delegate == "object" ){
 				if( doubt( delegate, ARRAY ) ){
 					return delegate.reduce( ( self, method ) => {
 						if( annon( method ) ){
@@ -137,8 +136,8 @@ const asyum = function asyum( context, wrap, delegate ){
 
 			let name = fname( delegate );
 
-			delegate = protype( self[ name ], FUNCTION )? self[ name ] :
-				protype( delegate, FUNCTION )? delegate :
+			delegate = typeof self[ name ] == "function" ? self[ name ] :
+				typeof delegate == "function" ? delegate :
 					( ) => { throw new Error ( `no operation done, ${ arguments }` ) };
 
 			return { [ name ]: delegate.bind( context ) };
@@ -153,7 +152,7 @@ const asyum = function asyum( context, wrap, delegate ){
 			@end-note
 		*/
 		if( arguments.length == 3 ){
-			if( protype( delegate, OBJECT ) ){
+			if( typeof delegate == "object" ){
 				if( doubt( delegate, ARRAY ) ){
 					return delegate.reduce( ( self, method ) => {
 						if( annon( method ) ){
@@ -200,7 +199,7 @@ const asyum = function asyum( context, wrap, delegate ){
 				}else{
 					return method;
 				}
-			}, protype( wrap, FUNCTION )? wrap : function( ){ } ).prototype;
+			}, typeof wrap == "function" ? wrap : function( ){ } ).prototype;
 
 			if( annon( delegate ) ){
 				throw new Error( `invalid delegate method, '${ delegate }'` );
@@ -208,10 +207,10 @@ const asyum = function asyum( context, wrap, delegate ){
 
 			name = fname( delegate );
 
-			if( protype( prototype[ name ], FUNCTION ) ){
+			if( typeof prototype[ name ] == "function" ){
 				delegate = prototype[ name ];
 
-			}else if( !protype( delegate, FUNCTION ) ){
+			}else if( typeof delegate != "function" ){
 				delegate = ( ( ) => { throw new Error ( `no operation done, ${ arguments }` ) } );
 			}
 
