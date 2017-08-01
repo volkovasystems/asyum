@@ -1,14 +1,29 @@
 {
   "name": "asyum",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Pretend entity.",
   "main": "asyum.js",
   "support": "asyum.support.js",
   "deploy": "asyum.deploy.js",
   "browser": "asyum.deploy.js",
   "scripts": {
-    "build": "babel asyum.js --out-file asyum.support.js --source-maps && webpack --progress --display-modules",
-    "test": "mocha asyum-test.js"
+	  "pristine": "rsetmod clean && flxc execute ./.install.sh",
+	  "clear": "rsetmod clean --clear",
+	  "formal": "jesy apply '*.json'",
+	  "build:support": "gulp --module asyum --all",
+	  "build:deploy": "webpack --config webpack.compact.js --progress --display-modules",
+	  "rebuild": "npm run build:support && npm run build:deploy",
+	  "build": "npm run pristine && npm run rebuild",
+	  "build:test:support": "gulp --module test --all",
+	  "build:test:deploy": "webpack --config webpack.test.js --progress --display-modules",
+	  "build:test:bridge": "gulp --module test --bridge",
+	  "build:test": "npm run build:test:support && npm run build:test:deploy && npm run build:test:bridge",
+	  "test:server": "mocha test.js && mocha test.js --reporter=json > test.server.json",
+	  "test:client": "./node_modules/.bin/wdio wdio.client.js",
+	  "pretest": "npm run clear && npm run rebuild && npm run build:test",
+	  "test": "npm run test:server && npm run test:client",
+	  "posttest": "npm run formal",
+	  "deploy": "npm run build && npm run build:test && npm run test:server && npm run test:client && npm run formal"
   },
   "repository": {
     "type": "git",
