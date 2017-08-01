@@ -68,3 +68,93 @@ const asyum = require( "./asyum.support.js" );
 //: @bridge:
 const path = require( "path" );
 //: @end-bridge
+
+//: @bridge:
+
+describe( "asyum", ( ) => {
+
+	let bridgeURL = `file://${ path.resolve( __dirname, "bridge.html" ) }`;
+
+	describe( "`asyum( { }, function test( ){ return 'test'; } ).test( )`", ( ) => {
+		it( "should be equal to 'test'", ( ) => {
+
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+
+					return asyum( { }, function test( ){ return "test"; } ).test( );
+
+				}
+
+			).value;
+
+			assert.equal( result, "test" );
+
+		} );
+	} );
+
+	describe( "`asyum( testA, ClassA, function method( ){ return 'world'; } ).method( )`", ( ) => {
+		it( "should be equal to 'hello'", ( ) => {
+			//: @ignore:
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					class ClassA{
+						constructor( ){ }
+						method( ){ return "hello"; }
+					}
+
+					let testA = new ClassA( );
+
+					return asyum( testA, ClassA, function method( ){ return "world"; } ).method( );
+				}
+
+			).value;
+			//: @end-ignore
+			assert.equal( result, "hello" );
+
+		} );
+	} );
+
+	describe( "`asyum( testA, ClassA, function methodB( ){ return 'world'; } ).methodB( )`", ( ) => {
+		it( "should be equal to 'world'", ( ) => {
+			//: @ignore:
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					class ClassA{
+						constructor( ){ }
+						method( ){ return "hello"; }
+					}
+
+					let testA = new ClassA( );
+					return asyum( testA, ClassA, function methodB( ){ return "world"; } ).methodB( );
+				}
+
+			).value;
+			//: @end-ignore
+			assert.equal( result, "world" );
+
+		} );
+	} );
+
+	describe( "`Asyum with context and wrap`", ( ) => {
+		it( "should be equal to 'yeah'", ( ) => {
+
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					return asyum( { "test": function test( ){ return "yeah"; } },
+					function test( ){ return "test"; } ).test( );
+				}
+
+			).value;
+
+			assert.equal( result, "yeah" );
+
+		} );
+	} );
+
+} );
+
+//: @end-bridge
