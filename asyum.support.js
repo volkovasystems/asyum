@@ -50,7 +50,7 @@
               
               		Supported multiple delegate.
               		This will return a delegated entity with bound delegated properties.
-              		Use this module for delegatet property method proxy.
+              		Use this module for delegated property method proxy.
               		If the delegated property method is called without sufficient override,
               			this will throw a no operation done error.
               		Delegate method should not be anonymous.
@@ -131,14 +131,16 @@ var asyum = function asyum(context, wrap, delegate) {var _arguments = arguments;
 			var self = wichevr(context, {});
 
 			if (annon(delegate)) {
-				throw new Error("invalid delegate method, '" + delegate + "'");
+				throw new Error("invalid delegate method, " + delegate);
 			}
 
 			var name = fname(delegate);
 
-			delegate = typeof self[name] == "function" ? self[name] :
+			delegate =
+			typeof self[name] == "function" ? self[name] :
 			typeof delegate == "function" ? delegate :
 			function () {throw new Error("no operation done, " + _arguments);};
+
 
 			return (0, _defineProperty3.default)({}, name, delegate.bind(context));
 		}
@@ -156,7 +158,7 @@ var asyum = function asyum(context, wrap, delegate) {var _arguments = arguments;
 				if (doubt(delegate, ARRAY)) {
 					return delegate.reduce(function (self, method) {
 						if (annon(method)) {
-							throw new Error("invalid delegate method, '" + method + "'");
+							throw new Error("invalid delegate method, " + method);
 						}
 
 						var name = fname(method);
@@ -171,7 +173,7 @@ var asyum = function asyum(context, wrap, delegate) {var _arguments = arguments;
 						var method = delegate[name];
 
 						if (annon(method)) {
-							throw new Error("invalid delegate method, '" + method + "'");
+							throw new Error("invalid delegate method, " + method);
 						}
 
 						self[name] = asyum(context, wrap, method)[name];
@@ -188,7 +190,7 @@ var asyum = function asyum(context, wrap, delegate) {var _arguments = arguments;
 			} while (prototype = (0, _getPrototypeOf2.default)(prototype));
 
 			if (annon(wrap)) {
-				throw new Error("invalid wrapper class, '" + wrap + "'");
+				throw new Error("invalid wrapper class, " + wrap);
 			}
 
 			var _name = fname(wrap);
@@ -202,7 +204,7 @@ var asyum = function asyum(context, wrap, delegate) {var _arguments = arguments;
 			}, typeof wrap == "function" ? wrap : function () {}).prototype;
 
 			if (annon(delegate)) {
-				throw new Error("invalid delegate method, '" + delegate + "'");
+				throw new Error("invalid delegate method, " + delegate);
 			}
 
 			_name = fname(delegate);

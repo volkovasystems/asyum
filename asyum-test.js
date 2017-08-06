@@ -2,6 +2,7 @@
 const assert = require( "assert" );
 const asyum = require( "./asyum.js" );
 
+let duration = Date.now( );
 assert.equal( asyum( { }, function test( ){ return "test"; } ).test( ),
 	"test", "should return 'test'" );
 
@@ -20,4 +21,4 @@ assert.equal( asyum( testA, ClassA, function methodB( ){ return "world"; } ).met
 assert.equal( asyum( { "test": function test( ){ return "yeah"; } },
 	function test( ){ return "test"; } ).test( ), "yeah", "should return 'yeah'" );
 
-console.log( "ok" );
+console.log( "ok", Date.now( ) - duration, "ms" );
