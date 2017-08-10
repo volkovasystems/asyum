@@ -50,7 +50,7 @@
 
 		Supported multiple delegate.
 		This will return a delegated entity with bound delegated properties.
-		Use this module for delegatet property method proxy.
+		Use this module for delegated property method proxy.
 		If the delegated property method is called without sufficient override,
 			this will throw a no operation done error.
 		Delegate method should not be anonymous.
@@ -131,14 +131,16 @@ const asyum = function asyum( context, wrap, delegate ){
 			let self = wichevr( context, { } );
 
 			if( annon( delegate ) ){
-				throw new Error( `invalid delegate method, '${ delegate }'` );
+				throw new Error( `invalid delegate method, ${ delegate }` );
 			}
 
 			let name = fname( delegate );
 
-			delegate = typeof self[ name ] == "function" ? self[ name ] :
+			delegate = (
+				typeof self[ name ] == "function" ? self[ name ] :
 				typeof delegate == "function" ? delegate :
-					( ) => { throw new Error ( `no operation done, ${ arguments }` ) };
+					( ) => { throw new Error ( `no operation done, ${ arguments }` ) }
+			);
 
 			return { [ name ]: delegate.bind( context ) };
 		}
@@ -156,7 +158,7 @@ const asyum = function asyum( context, wrap, delegate ){
 				if( doubt( delegate, ARRAY ) ){
 					return delegate.reduce( ( self, method ) => {
 						if( annon( method ) ){
-							throw new Error( `invalid delegate method, '${ method }'` );
+							throw new Error( `invalid delegate method, ${ method }` );
 						}
 
 						let name = fname( method );
@@ -171,7 +173,7 @@ const asyum = function asyum( context, wrap, delegate ){
 						let method = delegate[ name ];
 
 						if( annon( method ) ){
-							throw new Error( `invalid delegate method, '${ method }'` );
+							throw new Error( `invalid delegate method, ${ method }` );
 						}
 
 						self[ name ] = asyum( context, wrap, method )[ name ];
@@ -188,7 +190,7 @@ const asyum = function asyum( context, wrap, delegate ){
 			}while( prototype = Object.getPrototypeOf( prototype ) );
 
 			if( annon( wrap ) ){
-				throw new Error( `invalid wrapper class, '${ wrap }'` );
+				throw new Error( `invalid wrapper class, ${ wrap }` );
 			}
 
 			let name = fname( wrap );
@@ -202,7 +204,7 @@ const asyum = function asyum( context, wrap, delegate ){
 			}, typeof wrap == "function" ? wrap : function( ){ } ).prototype;
 
 			if( annon( delegate ) ){
-				throw new Error( `invalid delegate method, '${ delegate }'` );
+				throw new Error( `invalid delegate method, ${ delegate }` );
 			}
 
 			name = fname( delegate );

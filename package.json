@@ -1,48 +1,51 @@
 {
-  "name": "asyum",
-  "version": "0.8.0",
-  "description": "Pretend entity.",
-  "main": "asyum.js",
-  "support": "asyum.support.js",
-  "deploy": "asyum.deploy.js",
-  "browser": "asyum.deploy.js",
-  "scripts": {
-    "build": "babel asyum.js --out-file asyum.support.js --source-maps && webpack --progress --display-modules",
-    "test": "mocha asyum-test.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/volkovasystems/asyum.git"
-  },
-  "keywords": [
-    "pretend",
-    "entity",
-    "asyum"
-  ],
-  "author": "Richeve S. Bebedor <richeve.bebedor@gmail.com>",
-  "contributors": [
-    "John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>",
-    "Vinse Vinalon <vinsevinalon@gmail.com>"
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/volkovasystems/asyum/issues"
-  },
-  "homepage": "https://github.com/volkovasystems/asyum#readme",
-  "dependencies": {
-    "annon": "^0.9.0",
-    "babel-runtime": "^6.23.0",
-    "doubt": "^0.30.0",
-    "fname": "^0.11.0",
-    "protype": "^0.22.0",
-    "wichevr": "^0.13.0"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.25.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-latest": "^6.24.1",
-    "source-map-loader": "^0.2.1",
-    "webpack": "^3.1.0"
-  }
+	"name": "asyum",
+	"version": "0.9.0",
+	"description": "Pretend entity.",
+	"main": "asyum.js",
+	"support": "asyum.support.js",
+	"deploy": "asyum.deploy.js",
+	"browser": "asyum.deploy.js",
+	"scripts": {
+		"pristine": "rsetmod clean && flxc execute ./.install.sh",
+		"clear": "rsetmod clean --clear",
+		"build": "babel asyum.js --out-file asyum.support.js --source-maps && webpack --progress --display-modules",
+		"pretest": "npm run clear && npm run build",
+		"test": "node asyum-test.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/volkovasystems/asyum.git"
+	},
+	"keywords": [
+		"pretend",
+		"entity",
+		"asyum"
+	],
+	"author": "Richeve S. Bebedor <richeve.bebedor@gmail.com>",
+	"contributors": [
+		"John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>",
+		"Vinse Vinalon <vinsevinalon@gmail.com>"
+	],
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/volkovasystems/asyum/issues"
+	},
+	"homepage": "https://github.com/volkovasystems/asyum#readme",
+	"dependencies": {
+		"annon": "^0.12.0",
+		"babel-runtime": "^6.25.0",
+		"doubt": "^0.34.0",
+		"fname": "^0.13.0",
+		"protype": "^0.24.0",
+		"wichevr": "^0.14.0"
+	},
+	"devDependencies": {
+		"babel-cli": "^6.24.1",
+		"babel-core": "^6.25.0",
+		"babel-plugin-transform-runtime": "^6.23.0",
+		"babel-preset-latest": "^6.24.1",
+		"source-map-loader": "^0.2.1",
+		"webpack": "^3.5.2"
+	}
 }
