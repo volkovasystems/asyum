@@ -1,14 +1,17 @@
 {
 	"name": "asyum",
-	"version": "0.8.0",
+	"version": "0.9.0",
 	"description": "Pretend entity.",
 	"main": "asyum.js",
 	"support": "asyum.support.js",
 	"deploy": "asyum.deploy.js",
 	"browser": "asyum.deploy.js",
 	"scripts": {
+		"pristine": "rsetmod clean && flxc execute ./.install.sh",
+		"clear": "rsetmod clean --clear",
 		"build": "babel asyum.js --out-file asyum.support.js --source-maps && webpack --progress --display-modules",
-		"test": "mocha asyum-test.js"
+		"pretest": "npm run clear && npm run build",
+		"test": "node asyum-test.js"
 	},
 	"repository": {
 		"type": "git",
@@ -43,6 +46,6 @@
 		"babel-plugin-transform-runtime": "^6.23.0",
 		"babel-preset-latest": "^6.24.1",
 		"source-map-loader": "^0.2.1",
-		"webpack": "^3.4.1"
+		"webpack": "^3.5.2"
 	}
 }
