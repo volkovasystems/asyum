@@ -22,12 +22,5 @@
 		"bower_components",
 		"test",
 		"tests"
-	],
-	"dependencies": {
-		"annon": "^0.12.0",
-		"doubt": "^0.34.0",
-		"fname": "^0.13.0",
-		"protype": "^0.24.0",
-		"wichevr": "^0.14.0"
-	}
+	]
 }
