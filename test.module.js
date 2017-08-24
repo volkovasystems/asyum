@@ -69,6 +69,70 @@ const asyum = require( "./asyum.support.js" );
 const path = require( "path" );
 //: @end-bridge
 
+
+//: @server:
+
+describe( "asyum", ( ) => {
+
+	describe( "`asyum( { }, function test( ){ return 'test'; } ).test( )`", ( ) => {
+		it( "should be equal to 'test'", ( ) => {
+
+			assert.equal( asyum( { }, function test( ){ return "test"; } ).test( ), "test" );
+
+		} );
+	} );
+
+	describe( "`asyum with instance of class named 'ClassA' as context, class named ClassA as wrap, function method( ){ return 'world' } as delegate`", ( ) => {
+		it( "should be equal to 'hello'", ( ) => {
+
+			class ClassA{
+				constructor( ){ }
+				method( ){ return "hello"; }
+			}
+
+			let testA = new ClassA( );
+
+			assert.equal( asyum( testA, ClassA, function method( ){ return "world"; } ).method( ), "hello" );
+
+		} );
+	} );
+
+	describe( "`asyum with instance of class named 'ClassA' as context, class named ClassA as wrap, function methodB( ){ return 'world' } as delegate`", ( ) => {
+		it( "should be equal to 'world'", ( ) => {
+
+			class ClassA{
+				constructor( ){ }
+				method( ){ return "hello"; }
+			}
+
+			let testA = new ClassA( );
+
+			assert.equal( asyum( testA, ClassA, function methodB( ){ return "world"; } ).methodB( ), "world" );
+
+		} );
+	} );
+
+	describe( "`asyum with { 'test': function test( ){ return 'yeah'; } } as context and function test( ){ return 'test' } as wrap`", ( ) => {
+		it( "should be equal to 'yeah'", ( ) => {
+
+			assert.equal( asyum( { "test": function test( ){ return "yeah"; } },
+				function test( ){ return "test"; } ).test( ), "yeah" );
+
+		} );
+	} );
+
+} );
+
+//: @end-server
+
+
+//: @client:
+
+
+
+//: @end-client
+
+
 //: @bridge:
 
 describe( "asyum", ( ) => {
@@ -93,7 +157,7 @@ describe( "asyum", ( ) => {
 		} );
 	} );
 
-	describe( "`asyum( testA, ClassA, function method( ){ return 'world'; } ).method( )`", ( ) => {
+	describe( "`asyum with instance of class named 'ClassA' as context, class named ClassA as wrap, function method( ){ return 'world' } as delegate`", ( ) => {
 		it( "should be equal to 'hello'", ( ) => {
 			//: @ignore:
 			let result = browser.url( bridgeURL ).execute(
@@ -116,7 +180,7 @@ describe( "asyum", ( ) => {
 		} );
 	} );
 
-	describe( "`asyum( testA, ClassA, function methodB( ){ return 'world'; } ).methodB( )`", ( ) => {
+	describe( "`asyum with instance of class named 'ClassA' as context, class named ClassA as wrap, function methodB( ){ return 'world' } as delegate`", ( ) => {
 		it( "should be equal to 'world'", ( ) => {
 			//: @ignore:
 			let result = browser.url( bridgeURL ).execute(
@@ -138,14 +202,14 @@ describe( "asyum", ( ) => {
 		} );
 	} );
 
-	describe( "`Asyum with context and wrap`", ( ) => {
+	describe( "`asyum with { 'test': function test( ){ return 'yeah'; } } as context and function test( ){ return 'test' } as wrap`", ( ) => {
 		it( "should be equal to 'yeah'", ( ) => {
 
 			let result = browser.url( bridgeURL ).execute(
 
 				function( ){
 					return asyum( { "test": function test( ){ return "yeah"; } },
-					function test( ){ return "test"; } ).test( );
+						function test( ){ return "test"; } ).test( );
 				}
 
 			).value;
