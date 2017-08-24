@@ -1,0 +1,180 @@
+{
+	"state": {
+		"passed": 4,
+		"failed": 0,
+		"skipped": 0
+	},
+	"start": "2017-08-24T08:41:13.542Z",
+	"end": "2017-08-24T08:41:49.865Z",
+	"capabilities": {
+		"browserName": "chrome",
+		"chromeOptions": {
+			"args": [
+				"disable-gpu",
+				"headless"
+			]
+		},
+		"proxy": null
+	},
+	"host": "127.0.0.1",
+	"port": 4444,
+	"baseUrl": "http://localhost",
+	"framework": "mocha",
+	"mochaOpts": {
+		"timeout": 10000,
+		"ui": "bdd"
+	},
+	"suites": [
+		{
+			"name": "asyum",
+			"duration": 0,
+			"start": "2017-08-24T08:41:49.476Z",
+			"tests": [],
+			"hooks": []
+		},
+		{
+			"name": "asyum",
+			"duration": 214,
+			"start": "2017-08-24T08:41:49.477Z",
+			"end": "2017-08-24T08:41:49.691Z",
+			"tests": [],
+			"hooks": [
+				{
+					"start": "2017-08-24T08:41:49.478Z",
+					"end": "2017-08-24T08:41:49.478Z",
+					"duration": 0,
+					"title": "\"before each\" hook",
+					"associatedSuite": "asyum",
+					"associatedTest": "should be equal to 'test'"
+				},
+				{
+					"start": "2017-08-24T08:41:49.575Z",
+					"end": "2017-08-24T08:41:49.575Z",
+					"duration": 0,
+					"title": "\"after each\" hook",
+					"associatedSuite": "asyum",
+					"associatedTest": "should be equal to 'test'"
+				},
+				{
+					"start": "2017-08-24T08:41:49.576Z",
+					"end": "2017-08-24T08:41:49.577Z",
+					"duration": 1,
+					"title": "\"before each\" hook",
+					"associatedSuite": "asyum",
+					"associatedTest": "should be equal to 'hello'"
+				},
+				{
+					"start": "2017-08-24T08:41:49.617Z",
+					"end": "2017-08-24T08:41:49.617Z",
+					"duration": 0,
+					"title": "\"after each\" hook",
+					"associatedSuite": "asyum",
+					"associatedTest": "should be equal to 'hello'"
+				},
+				{
+					"start": "2017-08-24T08:41:49.617Z",
+					"end": "2017-08-24T08:41:49.617Z",
+					"duration": 0,
+					"title": "\"before each\" hook",
+					"associatedSuite": "asyum",
+					"associatedTest": "should be equal to 'world'"
+				},
+				{
+					"start": "2017-08-24T08:41:49.655Z",
+					"end": "2017-08-24T08:41:49.655Z",
+					"duration": 0,
+					"title": "\"after each\" hook",
+					"associatedSuite": "asyum",
+					"associatedTest": "should be equal to 'world'"
+				},
+				{
+					"start": "2017-08-24T08:41:49.656Z",
+					"end": "2017-08-24T08:41:49.656Z",
+					"duration": 0,
+					"title": "\"before each\" hook",
+					"associatedSuite": "asyum",
+					"associatedTest": "should be equal to 'yeah'"
+				},
+				{
+					"start": "2017-08-24T08:41:49.691Z",
+					"end": "2017-08-24T08:41:49.691Z",
+					"duration": 0,
+					"title": "\"after each\" hook",
+					"associatedSuite": "asyum",
+					"associatedTest": "should be equal to 'yeah'"
+				},
+				{
+					"start": "2017-08-24T08:41:49.691Z",
+					"end": "2017-08-24T08:41:49.691Z",
+					"duration": 0,
+					"title": "\"after all\" hook",
+					"associatedSuite": "asyum"
+				}
+			]
+		},
+		{
+			"name": "`asyum( { }, function test( ){ return 'test'; } ).test( )`",
+			"duration": 99,
+			"start": "2017-08-24T08:41:49.477Z",
+			"end": "2017-08-24T08:41:49.576Z",
+			"tests": [
+				{
+					"name": "should be equal to 'test'",
+					"start": "2017-08-24T08:41:49.478Z",
+					"end": "2017-08-24T08:41:49.574Z",
+					"duration": 96,
+					"state": "pass"
+				}
+			],
+			"hooks": []
+		},
+		{
+			"name": "`asyum with instance of class named 'ClassA' as context, class named ClassA as wrap, function method( ){ return 'world' } as delegate`",
+			"duration": 41,
+			"start": "2017-08-24T08:41:49.576Z",
+			"end": "2017-08-24T08:41:49.617Z",
+			"tests": [
+				{
+					"name": "should be equal to 'hello'",
+					"start": "2017-08-24T08:41:49.576Z",
+					"end": "2017-08-24T08:41:49.616Z",
+					"duration": 40,
+					"state": "pass"
+				}
+			],
+			"hooks": []
+		},
+		{
+			"name": "`asyum with instance of class named 'ClassA' as context, class named ClassA as wrap, function methodB( ){ return 'world' } as delegate`",
+			"duration": 38,
+			"start": "2017-08-24T08:41:49.617Z",
+			"end": "2017-08-24T08:41:49.655Z",
+			"tests": [
+				{
+					"name": "should be equal to 'world'",
+					"start": "2017-08-24T08:41:49.617Z",
+					"end": "2017-08-24T08:41:49.655Z",
+					"duration": 38,
+					"state": "pass"
+				}
+			],
+			"hooks": []
+		},
+		{
+			"name": "`asyum with { 'test': function test( ){ return 'yeah'; } } as context and function test( ){ return 'test' } as wrap`",
+			"duration": 36,
+			"start": "2017-08-24T08:41:49.655Z",
+			"end": "2017-08-24T08:41:49.691Z",
+			"tests": [
+				{
+					"name": "should be equal to 'yeah'",
+					"start": "2017-08-24T08:41:49.656Z",
+					"end": "2017-08-24T08:41:49.691Z",
+					"duration": 35,
+					"state": "pass"
+				}
+			],
+			"hooks": []
+		}
+	]
+}

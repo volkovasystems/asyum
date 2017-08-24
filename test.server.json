@@ -1,16 +1,74 @@
 {
-  "stats": {
-    "suites": 0,
-    "tests": 0,
-    "passes": 0,
-    "pending": 0,
-    "failures": 0,
-    "start": "2017-08-20T04:47:54.368Z",
-    "end": "2017-08-20T04:47:54.368Z",
-    "duration": 0
-  },
-  "tests": [],
-  "pending": [],
-  "failures": [],
-  "passes": []
+	"stats": {
+		"suites": 5,
+		"tests": 4,
+		"passes": 4,
+		"pending": 0,
+		"failures": 0,
+		"start": "2017-08-24T08:41:12.417Z",
+		"end": "2017-08-24T08:41:12.424Z",
+		"duration": 7
+	},
+	"tests": [
+		{
+			"title": "should be equal to 'test'",
+			"fullTitle": "asyum `asyum( { }, function test( ){ return 'test'; } ).test( )` should be equal to 'test'",
+			"duration": 2,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should be equal to 'hello'",
+			"fullTitle": "asyum `asyum with instance of class named 'ClassA' as context, class named ClassA as wrap, function method( ){ return 'world' } as delegate` should be equal to 'hello'",
+			"duration": 0,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should be equal to 'world'",
+			"fullTitle": "asyum `asyum with instance of class named 'ClassA' as context, class named ClassA as wrap, function methodB( ){ return 'world' } as delegate` should be equal to 'world'",
+			"duration": 0,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should be equal to 'yeah'",
+			"fullTitle": "asyum `asyum with { 'test': function test( ){ return 'yeah'; } } as context and function test( ){ return 'test' } as wrap` should be equal to 'yeah'",
+			"duration": 0,
+			"currentRetry": 0,
+			"err": {}
+		}
+	],
+	"pending": [],
+	"failures": [],
+	"passes": [
+		{
+			"title": "should be equal to 'test'",
+			"fullTitle": "asyum `asyum( { }, function test( ){ return 'test'; } ).test( )` should be equal to 'test'",
+			"duration": 2,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should be equal to 'hello'",
+			"fullTitle": "asyum `asyum with instance of class named 'ClassA' as context, class named ClassA as wrap, function method( ){ return 'world' } as delegate` should be equal to 'hello'",
+			"duration": 0,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should be equal to 'world'",
+			"fullTitle": "asyum `asyum with instance of class named 'ClassA' as context, class named ClassA as wrap, function methodB( ){ return 'world' } as delegate` should be equal to 'world'",
+			"duration": 0,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should be equal to 'yeah'",
+			"fullTitle": "asyum `asyum with { 'test': function test( ){ return 'yeah'; } } as context and function test( ){ return 'test' } as wrap` should be equal to 'yeah'",
+			"duration": 0,
+			"currentRetry": 0,
+			"err": {}
+		}
+	]
 }
